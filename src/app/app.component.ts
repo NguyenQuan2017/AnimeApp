@@ -1,10 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import {Events, Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import {CategoryProvider} from "../providers/category/category";
+import {GenreProvider} from "../providers/genre/genre";
+import {CategoryPage} from "../pages/category/category";
+import {GenrePage} from "../pages/genre/genre";
 
 @Component({
   templateUrl: 'app.html'
@@ -13,18 +16,23 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
-
+  categories: any;
+  genres: any;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+              private categoryService: CategoryProvider,
+              private genreService: GenreProvider,
+              public events: Events) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
     ];
 
+    this.getCategory();
+    this.getGenre();
   }
 
   initializeApp() {
@@ -40,5 +48,26 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  getCategory(): any {
+   this.categoryService.getListCategory().then(data => {
+     this.categories = data['data'];
+     console.log(this.categories);
+   })
+  }
+
+  getGenre(): any {
+    this.genreService.getListGenre().then(data => {
+      this.genres = data['data'];
+      console.log(this.genres);
+    })
+  }
+  goToCategory(category_id) {
+    this.nav.push(CategoryPage, {category_id: category_id})
+  }
+
+  goToGenre(genre_id, genre_name) {
+    this.nav.push(GenrePage, {genre_id: genre_id,genre_name: genre_name})
   }
 }

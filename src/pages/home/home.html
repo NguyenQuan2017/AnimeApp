@@ -7,12 +7,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding >
+    <ion-grid>
+        <ion-row>
+            <ion-col col-4 col-lg-auto col-md-auto class="text-center" *ngFor="let manga of mangas" (click)="goToManga(manga.manga_id)">
+                <p class="chapter-block"> Chapter {{ manga.episode }}</p>
+                <img class="img-background" src="{{url + manga.file.path}}">
+                   <p class="text-block text-capitalize">{{manga.manga_name}}</p>
+            </ion-col >
+        </ion-row>
+    </ion-grid>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

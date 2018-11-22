@@ -1,0 +1,22 @@
+<!--
+  Generated template for the SlideMangaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{manga_name.manga_name}} chap {{ manga.chapter}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-slides zoom="true" pager="true" style="background-color:black; color:white" paginationType="fraction" loop="true" >
+    <ion-slide  *ngFor="let image of files">
+      <img class="img-fluid"  data-src="{{url + image.path}}">
+    </ion-slide>
+  </ion-slides>
+</ion-content>

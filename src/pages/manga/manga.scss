@@ -1,0 +1,51 @@
+page-manga {
+.info-manga {
+  position: relative;
+}
+.info-manga::after {
+  content: "";
+  background: url("../../assets/imgs/blur.png");
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  position: absolute;
+}
+  .color-button {
+    background-color: black;
+    opacity: 0.7;
+    color: #21beff;
+    font-weight: bold;
+  }
+  ion-tabs {
+    margin-bottom: 20px;
+  }
+  ion-tabs,
+  ion-tabs .tabbar {
+    position: relative;
+    top: auto;
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+  .content-manga {
+    background-color: #546f9e;
+    color: white;
+    .breadcrumb-custom {
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      list-style: none;
+      background-color: #283531;
+      border-radius: 0.25rem;
+    }
+
+    .btn-chapter {
+      background-color: #303031 !important;
+    }
+
+  }
+
+}

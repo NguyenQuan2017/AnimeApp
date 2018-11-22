@@ -14,3 +14,41 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.content-md {
+  background-color: #343a40;
+  .item-md {
+    background-color: #202931;
+    color: white;
+  }
+}
+h4 {
+  font-size: 2.3rem;
+  color: white;
+  .ion-md-apps {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.img-background {
+  height: 175px !important;
+}
+.chapter-block {
+  position: absolute;
+  float: left;
+  background-color: #ffc107;
+  font-size: 12px;
+  opacity: 0.8;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 2px;
+}
+.text-block {
+  bottom: -1px;
+  background-color: #65635f;
+  position: relative;
+  font-size: 12px;
+  color: white;
+}

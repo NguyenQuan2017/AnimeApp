@@ -1,16 +1,24 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" >
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Anime</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="content-menu">
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>
+    <h4><ion-icon name="apps"></ion-icon> Danh mục</h4>
+    <button menuClose ion-item *ngFor="let cat of categories" (click)="goToCategory(cat.category_id)">
+     {{cat.category_name}}
+    </button>
+    <h4> <ion-icon name="apps"></ion-icon> Thể loại</h4>
+    <button menuClose ion-item *ngFor="let genre of genres" (click)="goToGenre(genre.genre_id, genre.genre_name)">
+     {{genre.genre_name}}
+    </button>
   </ion-content>
 
 </ion-menu>
